@@ -1,0 +1,25 @@
+int umi = 0;
+int bomba = 13;
+
+void setup()
+{
+  pinMode(A0, INPUT);
+  pinMode(bomba, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  umi = map(analogRead(A0), 0, 1023, 0, 100);
+  Serial.println(umi);
+  
+  if (umi <= 40) {
+    Serial.println("bomba ligada");
+    digitalWrite(bomba, HIGH); 
+  } 
+  else if(umi >= 80) {
+		Serial.println("bomba desligada");
+    digitalWrite(bomba, LOW);
+  }
+  delay(60000);
+}

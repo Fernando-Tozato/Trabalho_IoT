@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitor de Umidade</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            color: #00698f;
+        }
+       .info-table {
+            width: 80%;
+            margin: 40px auto;
+            border-collapse: collapse;
+        }
+       .info-table th,.info-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+       .info-table th {
+            background-color: #f7f7f7;
+        }
+       .info-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div id="time" hidden>{{ intervalo_leitura }}</div>
+    <h1>Monitor de Umidade</h1>
+    <table class="info-table">
+        <tr>
+            <th>Umidade</th>
+            <td>💧 {{ umi }}%</td>
+        </tr>
+        <tr>
+            <th>Bomba</th>
+            <td>⚙️ {{ 'Ligada' if bomba else 'Desligada' }}</td>
+        </tr>
+        <tr>
+            <th>Tempo total da bomba Desligada</th>
+            <td>⚙️ {{ tempo_total_des }}</td>
+        </tr>
+        <tr>
+            <th>Número de leituras em que a bomba estava desligada</th>
+            <td>⚙️ {{ count_bomba_des }}</td>
+        </tr>
+        <tr>
+            <th>Tempo total da bomba ligada</th>
+            <td>⚙️ {{ tempo_total_lig }}</td>
+        </tr>
+        <tr>
+            <th>Número de leituras em que a bomba estava ligada</th>
+            <td>⚙️ {{ count_bomba_lig }}</td>
+        </tr>
+    </table>
+    <script>
+        setTimeout(() => {
+            window.location.href = window.location.href;
+        }, document.getElementById('time').innerHTML * 1000);
+    </script>
+</body>
+</html>
